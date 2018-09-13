@@ -6,6 +6,11 @@
         #mytable {border: 1px blue solid;}
         .header {font-size:16px;margin-top:10px;}
     </style>
+    <script>
+        function emailNewsletter(email,firstname){
+         alert('Thanks for your subscription '+firstname+' your email '+email+' has been successfully subscribed');   
+        }
+    </script>
 </head>
 <body background="https://cdn.skim.gs/image/upload/v1456338113/msi/lavender-paint-swatch_puyzvc.jpg">
 <marquee>Welcome</marquee> 
@@ -35,17 +40,21 @@ Ragdoll
                     <br/>
 <h2> Sign up for our newsletter!</h2>
 
-<form action="mailto:mallory@travdes.com" method="post" ">
+<form >
   First name:<br>
-  <input type="text" name=Email" value="email">
+  <input type="text" name=Email" id="email" value="email">
   <br>
   Last name:<br>
-  <input type="text" name="First Name" value="first name">
+  <input type="text" name="First Name" id="firstname" value="first name">
   <br><br>
-  <input type="submit" value="Submit" >
+  <input type="button" value="Submit" onClick="emailNewsletter(document.getElementById("email"),document.getElementById("firstname"));">
 </form> 
 More info here: <br/>
 <a href="https://catinfo.org/">catinfo.org</a>
 <a href="https://cattime.com/cat-breeds">cattime.com</a>
+
+<p>
+    <button type="button" onClick="callHelloWorld();">Hello World</button>
+</p>
 </body>
 </html>
