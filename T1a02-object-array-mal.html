@@ -1,1 +1,18 @@
-f
+<h2 align=center>
+Try to seperate a complex object array by Mal</h2>
+open debug window ctrl-shift-i<br><br>
+myCoolObject=
+<input id="myInput" type=text size=120
+value='{"x":"5","y":"2","myArray":[3,7,8]}'><br>
+
+<input type=button value="show Object" onclick="{
+
+//myCoolObject = {'x':'5', 'y':'2', 'myArray': [3,7,8]}
+ myCoolObject=JSON.parse(document.getElementById('myInput').value)
+
+document.getElementById('myDiv01').innerHTML = `This is x: ` + 
+myCoolObject.x + `, this is y: `+ myCoolObject.y + `<br>`+
+`Lets print an array`+ myCoolObject.myArray + `<br>` + `Lets print the last number of the array` +
+myCoolObject.myArray[2]+ `<br>`
+}"><br>
+<div id="myDiv01">.....</div>
