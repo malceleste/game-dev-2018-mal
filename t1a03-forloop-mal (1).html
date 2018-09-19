@@ -1,0 +1,27 @@
+<style>
+.width{width:10px;}
+</style>
+<h2> JavaScript Loops</h2>
+X <input type=text id="myText01" value="100">
+Y <input type=text id="myText02" value="100">
+<input type=button value="run for loop" onclick="{
+
+var table = document.getElementById('myDiv01');
+document.getElementById('myDiv01').innerHTML = '';
+for(let x=0; x < document.getElementById('myText01').value; x++){
+
+	document.getElementById('myDiv01').innerHTML += 'x = '+x+'<br/>';
+	document.getElementById('myDiv01').innerHTML += 'y = ';
+	for(let y=0; y < document.getElementById('myText02').value; y++){
+		
+		document.getElementById('myDiv01').innerHTML += y+',';
+	}
+	document.getElementById('myDiv01').innerHTML += '<br/>';
+}
+alert('done!');
+}">
+<div  id="myDiv01">
+	
+</div>
+
+
