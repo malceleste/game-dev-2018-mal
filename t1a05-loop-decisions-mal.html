@@ -1,0 +1,47 @@
+<style>
+.width{width:10px;}
+</style>
+<h2> JavaScript Loops + Decisions </h2>
+X <input type=text id="myText01" value="50">
+<input type=button value="run for loop" onclick="{
+document.getElementById('myDiv01').innerHTML = ''
+for(let x=0; x < document.getElementById('myText01').value; x++){	
+	
+    if (x % 2 == 0){
+document.getElementById('myDiv01').innerHTML+= 'Even number, '
+}
+
+if (x<10){
+document.getElementById('myDiv01').innerHTML+= 'less than 10, '
+}
+if (x == 50){
+document.getElementById('myDiv01').innerHTML+= 'good job! 50! '
+}
+if (x == 20){
+document.getElementById('myDiv01').innerHTML+= 'good job! 20! '
+}
+
+}
+if (x>20){
+document.getElementById('myDiv01').innerHTML+= 'more than 20, '
+}
+
+if (x!=50){
+document.getElementById('myDiv01').innerHTML+=
+'noooo not 50! '
+}
+if(x>10 && x<20){
+document.getElementById('myDiv01').innerHTML+=
+'greater than 10 but less than 20, '
+}
+
+document.getElementById('myDiv01').innerHTML += 'x is '+ x +'<br/>';
+
+}
+
+}">
+<div  id="myDiv01">
+	
+</div>
+
+
