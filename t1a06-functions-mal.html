@@ -1,15 +1,32 @@
-<h2 align=center> Functions by Mal</h2>
-<input type=text value=3 id="myText01" >
-<input type=button value="Run function myFun" onclick="{
-
+<script>
 function myFun(){
-document.getElementById('myDiv01').innerHTML = ` x ` = `+ 
+document.getElementById('myDiv01').innerHTML = ` x   = `+ 
 document.getElementById('myText01').value *
 document.getElementById('myText01').value 
-
-}
-
 myFun()
+}
+</script>
+
+<script>
+function myFun01(){
+document.getElementById('myDiv01').innerHTML = ` x = `+
+document.getElementById('myText01').value /      
+document.getElementById('myText01').value 
+myFun01()
+}
+</script>
+
+
+
+<h2 align=center> Functions by Mal</h2>
+
+<input type=text value=3 id="myText01" >
+<input type=button value="Run function myFun" onclick="{
+myFun()
+}">
+<input type=text value=3 id="myText02" >
+<input type=button value="Run function myFun01" onclick="{
+myFun01()
 
 }">
 <div id="myDiv01">...</div>
