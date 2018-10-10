@@ -1,0 +1,20 @@
+
+
+<h2 align=center> 1D Arrays by Mal</h2>
+
+<input type=text value=3 id="myText01" >
+
+<input type=button value="1D Array" onclick="{
+   myProgramTerms = []  // creates an array
+
+   myProgramTerms[0] = `variables`
+   myProgramTerms[1] = `decisions`
+   myProgramTerms[2] = `for loops`
+   document.getElementById('myDiv01').innerHTML =``
+   for (let myLoop=0;  myLoop < 3;  myLoop++ ){
+    document.getElementById('myDiv01').innerHTML += myLoop + `:`+
+        myProgramTerms[myLoop]+`<br>`
+   }
+
+}">
+<div id="myDiv01">...</div>
