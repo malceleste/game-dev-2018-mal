@@ -4,42 +4,45 @@
 <h2> JavaScript Loops + Decisions </h2>
 X <input type=text id="myText01" value="76">
 <input type=button value="run for loop" onclick="{
-document.getElementById('myDiv01').innerHTML = ''
-for(let x=0; x < document.getElementById('myText01').value; x++){	
+document.getElementById('myDiv01').innerHTML = '';
+for(var x=0; x < document.getElementById('myText01').value; x++){	
+document.getElementById('myDiv01').innerHTML += '<br/><br/>x is '+ x +': ';
     if (x % 2 == 0){
-document.getElementById('myDiv01').innerHTML+= '<font style=color:pink> Even number, ';
+document.getElementById('myDiv01').innerHTML+= '<br/><font style=color:pink> Even number, ';
 }
 if (x<10){
-document.getElementById('myDiv01').innerHTML+= '<font style=color:teal>less than 10, ';
+document.getElementById('myDiv01').innerHTML+= '<br/><font style=color:teal>less than 10, ';
+
 }
 if (x == 50){
-document.getElementById('myDiv01').innerHTML+= '<font style=color:#D20E92>good job! 50! ';
+document.getElementById('myDiv01').innerHTML+= '<br/><font style=color:#D20E92>good job! 50! ';
 
 }
 if (x == 20){
-document.getElementById('myDiv01').innerHTML+= '<font style=color:#D20E92>good job! 20! ';
+document.getElementById('myDiv01').innerHTML+= '<br/><font style=color:#D20E92>good job! 20! ';
 
 }
 if (x>20){
-document.getElementById('myDiv01').innerHTML +='<font style=color:red> more than 20, ';
+document.getElementById('myDiv01').innerHTML +='<br/><font style=color:red> more than 20, ';
 }
 
 if (x!=50){
-document.getElementById('myDiv01').innerHTML+='<font style=color:blue>noooo not 50! ';
+document.getElementById('myDiv01').innerHTML+='<br/><font style=color:blue>noooo not 50! ';
 }
 if((x>10) && (x<20)){
-document.getElementById('myDiv01').innerHTML+= '<font style=color:purple>greater than 10 but less than 20, ';
+document.getElementById('myDiv01').innerHTML+= '<br/><font style=color:purple>greater than 10 but less than 20, ';
 }
+
 if ((x==75)||(x<50)){
-document.getElementById('myDiv01').innerHTML+= '<font style=color:green>greater than 50 or equal to 75, ';
+document.getElementById('myDiv01').innerHTML+= '<br/><font style=color:green>greater than 50 or equal to 75, ';
 }
 if ((x==1)||(x==0)){
-document.getElementById('myDiv01').innerHTML+= '<font style=color:orange> equal to 1 or equal to 0, ';
+document.getElementById('myDiv01').innerHTML+= '<br/><font style=color:orange> equal to 1 or equal to 0, ';
 }
 if ((x==5)||(x==10)||(x==20)){
-document.getElementById('myDiv01').innerHTML+='<font style=color:#990000>hello, '
+document.getElementById('myDiv01').innerHTML+='<br/><font style=color:#990000>hello, ';
 }
-document.getElementById('myDiv01').innerHTML += 'x is '+ x +'<br/>';
+
 
 }
 
@@ -47,5 +50,3 @@ document.getElementById('myDiv01').innerHTML += 'x is '+ x +'<br/>';
 <div  id="myDiv01">
 	
 </div>
-
-
