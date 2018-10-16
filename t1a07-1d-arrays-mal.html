@@ -1,9 +1,8 @@
 
 
 <h2 align=center> 1D Arrays by Mal</h2>
-
+<div style="width: 25%;float:left;">
 <input type=text value=11 id="myText01" >
-
 <input type=button value="1D Array" onclick="{
    myProgramTerms = []  // creates an array
 
@@ -20,10 +19,95 @@
    myProgramTerms[10] = `abstract`
    myProgramTerms[11] = `abstract expressonism`
   document.getElementById('myDiv01').innerHTML =``
-   for (let myLoop=0;  myLoop < 11;  myLoop++ ){
+   for (let myLoop=0;  myLoop < document.getElementById('myText01').value;  myLoop++ ){
     document.getElementById('myDiv01').innerHTML += myLoop + `:`+
         myProgramTerms[myLoop]+`<br>`
    }
 
 }">
 <div id="myDiv01">...</div>
+</div>
+<div style="width: 25%;float:left;">
+
+<input type=text value=11 id="myText02" >
+<input type=button value="1D Array 02" onclick="{
+   myProgramTerms = []  
+  
+ myProgramTerms[0] = `0`
+   myProgramTerms[1] = `3`
+   myProgramTerms[2] = `6`
+   myProgramTerms[3] = `9`
+   myProgramTerms[4] = `12`
+   myProgramTerms[5] = `15`
+   myProgramTerms[6] = `18`
+   myProgramTerms[7] = `21`
+   myProgramTerms[8] = `24`
+   myProgramTerms[9] = `27`
+   myProgramTerms[10] = `30`
+   myProgramTerms[11] = `33`
+  document.getElementById('myDiv02').innerHTML =``
+   for (let myLoop=0;  myLoop < document.getElementById('myText02').value;  myLoop++ ){
+    document.getElementById('myDiv02').innerHTML += myLoop + `:`+
+        myProgramTerms[myLoop]+`<br>`
+   }
+
+}">
+<div id="myDiv02">...</div>
+</div>
+
+<div style="width: 25%;float:left;">
+
+<input type=text value=11 id="myText03" >
+<input type=button value="1D Array 03" onclick="{
+   myProgramTerms = []  
+  
+   myProgramTerms[0] = `0`
+   myProgramTerms[1] = `3`
+   myProgramTerms[2] = `6`
+   myProgramTerms[3] = `9`
+   myProgramTerms[4] = `12`
+   myProgramTerms[5] = `15`
+   myProgramTerms[6] = `18`
+   myProgramTerms[7] = `21`
+   myProgramTerms[8] = `24`
+   myProgramTerms[9] = `27`
+   myProgramTerms[10] = `30`
+   myProgramTerms[11] = `33`
+  document.getElementById('myDiv03').innerHTML = 'Array index of '+document.getElementById('myText03').value+' returns '+ myProgramTerms[document.getElementById('myText03').value];
+
+}">
+<div id="myDiv03">...</div>
+</div>
+
+<div style="width: 25%;float:left;">
+
+<input type=button value="1D Array 04" onclick="{
+   animals = []  
+  
+   //animals[0] = `ignore`
+   animals[1] = `dog`
+   animals[2] = `bird`
+   animals[3] = `lizard`
+   animals[4] = `frog`
+   animals[5] = `cow`
+   animals[6] = `pig`
+   animals[7] = `sheep`
+   animals[8] = `goat`
+   animals[9] = `elephant`
+   animals[10] = `giraffe`
+   animals[11] = `lion`
+   
+   family = []  
+  
+   //family[0] = `mum`
+   family[1] = `dad`
+   family[2] = `sister`
+   family[3] = `brother`
+   family[4] = `mum`
+   var animal_index = Math.floor(Math.random() * 11) + 1  ;
+   var family_index = Math.floor(Math.random() * 4) + 1  ;
+  document.getElementById('myDiv04').innerHTML = 'My '+family[family_index]+' has a pet '+ animals[animal_index];
+
+}">
+<div id="myDiv04">...</div>
+</div>
