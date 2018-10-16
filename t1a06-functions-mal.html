@@ -1,32 +1,64 @@
 <script>
 function myFun(){
-document.getElementById('myDiv01').innerHTML = ` x   = `+ 
-document.getElementById('myText01').value *
-document.getElementById('myText01').value 
-myFun()
+	document.getElementById('myDiv01').innerHTML = document.getElementById('myText01').value+' + '+
+	document.getElementById('myText01').value+' = '+
+	(parseFloat(document.getElementById('myText01').value) +
+	parseFloat(document.getElementById('myText01').value));
 }
 </script>
 
 <script>
 function myFun01(){
-document.getElementById('myDiv01').innerHTML = ` x = `+
-document.getElementById('myText01').value /      
-document.getElementById('myText01').value 
-myFun01()
+document.getElementById('myDiv02').innerHTML = document.getElementById('myText02').value+' x '+
+document.getElementById('myText02').value+' = '+
+(document.getElementById('myText02').value *      
+document.getElementById('myText02').value )
+
+}
+</script>
+
+<script>
+function myFun02(){
+document.getElementById('myDiv03').innerHTML = document.getElementById('myText03').value+' / '+
+document.getElementById('myText03').value+' = '+
+(document.getElementById('myText03').value /      
+document.getElementById('myText03').value )
+
+}
+</script>
+<script>
+function myFun03(){
+document.getElementById('myDiv04').innerHTML = document.getElementById('myText04').value+' - '+
+document.getElementById('myText04').value+' = '+
+(document.getElementById('myText04').value -      
+document.getElementById('myText04').value) 
+
 }
 </script>
 
 
 
 <h2 align=center> Functions by Mal</h2>
-
+<div style="width:25%;float:left">
 <input type=text value=3 id="myText01" >
-<input type=button value="Run function myFun" onclick="{
-myFun()
-}">
-<input type=text value=3 id="myText02" >
-<input type=button value="Run function myFun01" onclick="{
-myFun01()
-
-}">
+<input type=button value="Run function myFun" onclick="myFun()">
 <div id="myDiv01">...</div>
+</div>
+<div style="width:25%;float:left">
+<input type=text value=3 id="myText02" >
+<input type=button value="Run function myFun01" onclick="myFun01()">
+<div id="myDiv02">...</div>
+</div>
+<div style="width:25%;float:left">
+<input type=text value=3 id="myText03" >
+<input type=button value="Run function myFun02" onclick="myFun02()">
+<div id="myDiv03">...</div>
+</div>
+<div style="width:25%;float:left">
+<input type=text value=3 id="myText04" >
+<input type=button value="Run function myFun03" onclick="myFun03()">
+<div id="myDiv04">...</div>
+</div>
+
+
+
