@@ -1,0 +1,43 @@
+<h2 align=center> Events by Mal </h2>
+
+<div id="myDiv01" style="background:pink;width:20%;height:40;float:left"
+ OnDblClick="{ 
+document.getElementById('myOutput01').innerHTML = 'double click event activated'
+}"><div id="myOutput01">...</div>
+Double click here</div>
+
+<div id="myDiv02"style="background:orange;width:20%;height:40;float:left"
+onMouseOver="{ document.getElementById('myOutput02').innerHTML=event.clientX
+}"> <div id="myOutput02">...</div>
+Mouse over here</div>
+
+<div style="width:20% float:left">
+<div id="myOutput03">...</div>
+<input type=text align="right" value="Change me" onChange="{
+document.getElementById('myOutput03').innerHTML= 
+'You changed the text: ' + this.value
+}"> 
+</div>
+
+<body onload="myFunction01()">
+<script>
+function myFunction01() {
+alert ("page is loaded"); 
+}">
+</script>
+
+<div onmousemove="myFunction02()">
+<script>
+function myFunction02(){document.getElementById('myOutput04').innerHTML = 'mouse moved' 
+}">
+</script>
+
+<div style="width:20% float:left">
+<input type="text" value= "Press a key" onkeydown="myFunction03()">
+<script>
+function myFunction03() {
+    alert("You pressed a key inside the input field");
+}
+</script>
+
+
