@@ -34,24 +34,25 @@ document.getElementById('myIn05').value.search()
 }">
 
 <br>
-<input id="myIn06" input type=text value="hello">
-<input type=button value=".concat" onclick="{
+<input id="myIn06" input type=text value="hello there">
+<input type=button value=".charAt" onclick="{
 document.getElementById('myOut06').innerHTML+=
-document.getElementById('myIn06').value.concat(myIn05)
+document.getElementById('myIn06').value.charAt(4)
 }">
 
 <br>
 <input id="myIn07" input type=text value="hello there">
-<input type=button value=".indexOf" onclick="{
+<input type=button value=".strike" onclick="{
 document.getElementById('myOut07').innerHTML+=
-document.getElementById('myIn07').value.indexOf("hello")
+document.getElementById('myIn07').value.strike()
 }">
 
 <br>
 <input id="myIn08" input type=text value="hello there">
 <input type=button value=".indexOf" onclick="{
 document.getElementById('myOut08').innerHTML+=
-document.getElementById('myIn08').value.replace("hello","hi")
+document.getElementById('myIn08').value.startsWith('hello')
+
 }">
 
 <div id="myOut01"></div>
