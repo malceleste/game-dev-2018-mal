@@ -1,0 +1,82 @@
+<h2 align=center> Strings by Mal </h2>
+<input id="myIn01" input type=text value="The World is good, and bad!">
+<input type=button value=".toUpperCase" onclick="{
+document.getElementById('myOut01').innerHTML+= 
+document.getElementById('myIn01').value.toUpperCase()
+
+}">
+<br>
+<input id="myIn02" input type=text value="The World is good, and bad!">
+<input type=button value=".repeat" onclick="{
+document.getElementById('myOut02').innerHTML+=
+document.getElementById('myIn02').value.repeat(2)
+}">
+<br>
+<input id="myIn03" input type=text value="The World is good, and bad!">
+<input type=button value=".substr" onclick="{
+document.getElementById('myOut03').innerHTML+=
+document.getElementById('myIn03').value.substr(1,2)
+}">
+
+<br>
+<input id="myIn04" input type=text value="THE WORLD IS GOOD, AND BAD">
+<input type=button value=".toLowerCase" onclick="{
+document.getElementById('myOut04').innerHTML+=
+document.getElementById('myIn04').value.toLowerCase()
+}">
+
+
+<br>
+<input id="myIn05" input type=text value="The World is good, and bad!">
+<input type=button value=".replace" onclick="{
+document.getElementById('myOut05').innerHTML+=
+document.getElementById('myIn05').value.replace('World','School')
+}">
+
+<br>
+<input id="myIn06" input type=text value="The World is good, and bad!">
+<input type=button value=".charAt" onclick="{
+document.getElementById('myOut06').innerHTML+=
+document.getElementById('myIn06').value.charAt(4)
+}">
+
+<br>
+<input id="myIn07" input type=text value="The World is good, and bad!">
+<input type=button value=".strike" onclick="{
+document.getElementById('myOut07').innerHTML+=
+document.getElementById('myIn07').value.strike()
+}">
+
+<br>
+<input id="myIn08" input type=text value="The World is good, and bad!">
+<input type=button value=".startsWith" onclick="{
+document.getElementById('myOut08').innerHTML+=
+document.getElementById('myIn08').value.startsWith('The')
+
+}">
+<br>
+<input id="myIn09" input type=text value="The World is good, and bad!">
+<input type=button value=".indexOf" onclick="{
+document.getElementById('myOut09').innerHTML+=
+document.getElementById('myIn09').value.indexOf('World')
+}">
+
+<br>
+<input id="myIn10" input type=text value="The World is good, and bad!">
+<input type=button value=".split" onclick="{
+myArray[]
+myArray = document.getElementById('myIn10').value.split(' ,')
+document.getElementById('myOut10').innerHTML= myArray[0] + '<br>'+myArray[1]
+
+}">
+<div id="myOut01"></div>
+<div id="myOut02"></div>
+<div id="myOut03"></div>
+<div id="myOut04"></div>
+<div id="myOut05"></div>
+<div id="myOut06"></div>
+<div id="myOut07"></div>
+<div id="myOut08"></div>
+<div id="myOut09"></div>
+<div id="myOut10"></div>
+
