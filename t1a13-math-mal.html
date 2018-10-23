@@ -1,14 +1,90 @@
 <h2 align=center> Math by Mal </h2>
 <input id="myIn01" input type=text value="4.7">
-<input type=button value= "Round" onclick="{
+<input type=button value= ".round" onclick="{
+
 document.getElementById('myOut01').innerHTML= 
-Math.round(parseFloat(document.getElementById('myIn01').value)
+
+Math.round(parseFloat(document.getElementById('myIn01').value))
+
+}">
+<br>
+
+<input id="myIn02" input type=text value="25">
+<input type=button value=".sqrt" onclick="{
+
+document.getElementById('myOut02').innerHTML= 
+
+Math.sqrt(parseFloat(document.getElementById('myIn02').value))
 
 }">
 
+<br>
 
+<input id="myIn03" input type=text value="0">
+<input type=button value=".random" onclick="{
 
+document.getElementById('myOut03').innerHTML= 
 
-<div id="myOut01"></div>
-<div id="myOut02"></div>
-<div id="myOut03"></div>
+Math.random(parseFloat(document.getElementById('myIn03').value))	
+
+}">
+<br>
+
+<input id="myIn03" input type=text value="0">
+<input type=button value=".cos" onclick="{
+
+document.getElementById('myOut03').innerHTML= 
+
+Math.cos(0 * Math.Pi/180(document.getElementById('myIn03').value))	
+
+}">
+<br>
+<input id="myIn04" input type=text value="10.2">
+<input type=button value=".ceil" onclick="{
+
+document.getElementById('myOut04').innerHTML= 
+
+Math.ceil(parseFloat(document.getElementById('myIn04').value))	
+
+}">
+<br>
+<input id="myIn05" input type=text value="10.2">
+<input type=button value=".floor" onclick="{
+
+document.getElementById('myOut05').innerHTML= 
+
+Math.floor(parseFloat(document.getElementById('myIn05').value))	
+
+}">
+
+<br>
+<input id="myIn06" input type=text value="0, 10, 30, -10, 40">
+<input type=button value=".max" onclick="{
+
+document.getElementById('myOut06').innerHTML= 
+
+Math.max(0, 10, 30, -10, 40)
+}">
+<br>
+<input id="myIn07" input type=text value="-20">
+<input type=button value=".abs" onclick="{
+
+document.getElementById('myOut07').innerHTML= 
+
+Math.abs(parseFloat(document.getElementById('myIn07').value))	
+}">
+<br>
+<input id="myIn08" input type=text value="2,2">
+<input type=button value=".pow" onclick="{
+
+document.getElementById('myOut08').innerHTML= 
+Math.pow(2,2)	
+}">
+<div id="myOut01">..</div>
+<div id="myOut02">..</div>
+<div id="myOut03">..</div>
+<div id="myOut04">..</div>
+<div id="myOut05">..</div>
+<div id="myOut06">..</div>
+<div id="myOut07">..</div>
+<div id="myOut08">..</div>
