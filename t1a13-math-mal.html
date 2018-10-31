@@ -30,12 +30,12 @@ Math.random(parseFloat(document.getElementById('myIn03').value))
 }">
 <br>
 
-<input id="myIn03" input type=text value="0">
+<input id="myIn033" input type=text value="10">
 <input type=button value=".cos" onclick="{
+var num = parseFloat(document.getElementById('myIn033').value) * Math.PI / parseFloat(180);
+document.getElementById('myOut033').innerHTML= 
 
-document.getElementById('myOut03').innerHTML= 
-
-Math.cos(0 * Math.Pi/180(document.getElementById('myIn03').value))	
+Math.cos(num)	
 
 }">
 <br>
@@ -83,6 +83,7 @@ Math.pow(2,2)
 <div id="myOut01">..</div>
 <div id="myOut02">..</div>
 <div id="myOut03">..</div>
+<div id="myOut033">..</div>
 <div id="myOut04">..</div>
 <div id="myOut05">..</div>
 <div id="myOut06">..</div>

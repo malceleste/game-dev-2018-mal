@@ -13,7 +13,7 @@ document.getElementById('myIn02').value.repeat(2)
 }">
 <br>
 <input id="myIn03" input type=text value="The World is good, and bad!">
-<input type=button value=".substr" onclick="{
+<input type=button value=".substr(1,2)" onclick="{
 document.getElementById('myOut03').innerHTML+=
 document.getElementById('myIn03').value.substr(1,2)
 }">
@@ -28,14 +28,14 @@ document.getElementById('myIn04').value.toLowerCase()
 
 <br>
 <input id="myIn05" input type=text value="The World is good, and bad!">
-<input type=button value=".replace" onclick="{
+<input type=button value=".replace('World','School')" onclick="{
 document.getElementById('myOut05').innerHTML+=
 document.getElementById('myIn05').value.replace('World','School')
 }">
 
 <br>
 <input id="myIn06" input type=text value="The World is good, and bad!">
-<input type=button value=".charAt" onclick="{
+<input type=button value=".charAt(4)" onclick="{
 document.getElementById('myOut06').innerHTML+=
 document.getElementById('myIn06').value.charAt(4)
 }">
@@ -64,11 +64,11 @@ document.getElementById('myIn09').value.indexOf('World')
 <br>
 <input id="myIn10" input type=text value="The World is good, and bad!">
 <input type=button value=".split" onclick="{
-myArray[]
+myArray = []
 myArray = document.getElementById('myIn10').value.split(' ,')
-document.getElementById('myOut10').innerHTML= myArray[0] + '<br>'+myArray[1]
-
+document.getElementById('myOut10').innerHTML= myArray[0] +'<br>' +myArray[1]
 }">
+
 <div id="myOut01"></div>
 <div id="myOut02"></div>
 <div id="myOut03"></div>
@@ -79,4 +79,5 @@ document.getElementById('myOut10').innerHTML= myArray[0] + '<br>'+myArray[1]
 <div id="myOut08"></div>
 <div id="myOut09"></div>
 <div id="myOut10"></div>
+
 

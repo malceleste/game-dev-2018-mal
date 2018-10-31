@@ -1,0 +1,120 @@
+
+<script>
+function myFun01(myIn){
+ alert(myIn)
+}
+</script>
+
+<script>
+function myFun02(myIn){
+ return myIn + '<br>'
+}
+</script>
+
+<script>
+function myFun03(y){
+ if (y == 10) {
+ 	return y
+ }else{
+ 	return " != 10"
+ }
+}
+</script>
+
+<script>
+function myFun04(myIn, myIn2){
+ return myIn+ '<br>'+ myIn2 + '<br>'
+}
+</script>
+
+<script>
+function myFun05(name){
+ return "Hello " +name +'<br>'
+ 
+}
+function myFun06(yourage,mumsage,mumname){
+ return mumname+" was " +(mumsage-yourage) +' when she had you<br>';
+ 
+}
+function myFun07(mumname){
+  return myFun06(document.getElementById('yourage').value,document.getElementById('mumsage').value,mumname);
+}
+var names = "";
+function myFun08(a){
+  var split = a.split(',');
+  for(var x =0;x<split.length;x++){
+    names+='<br>'+split[x];
+
+  }
+  return names;
+  //return myFun08(document.getElementById('yourage').value,document.getElementById('mumsage').value,mumname);
+}
+</script>
+
+<h2 align=center> Passing Variables in Functions by Mal </h2>
+<br>
+<p>
+Function #1: 
+<input type=button value="alert" onclick="{
+ myFun01('hello')
+}">
+
+</p>
+<p>
+Function #2: 
+
+<input type=button value="return" onclick="{
+ document.getElementById('myOut02').innerHTML= myFun02('Hi')
+}">
+<div id="myOut02"></div>
+</p>
+<p>
+Function #3: 
+<input id="myIn" type=text value='10'>
+<input type=button value="if statement" onclick="{
+ document.getElementById('myOut03').innerHTML= myFun03(document.getElementById('myIn').value);
+}">
+<div id="myOut03"></div>
+</p>
+<p>
+Function #4: 
+<input id="myIn04" type=text value='Hello2'>
+<input id="myIn042" type=text value='Hi2'>
+<input type=button value="return 2" onclick="{
+ document.getElementById('myOut04').innerHTML = myFun04(document.getElementById('myIn04').value,document.getElementById('myIn042').value)
+}">
+<div id="myOut04"></div>
+</p>
+<p>
+Function #5: 
+<input id="name" type=text value='john'>
+<input type=button value="name" onclick="{
+ document.getElementById('myOut05').innerHTML+= myFun05(document.getElementById('name').value)
+}">
+<div id="myOut05"></div>
+</p>
+<p>
+Function #6: 
+How old are you? <input id="yourage" type=text value='12'>
+How old is your mum? <input id="mumsage" type=text value='36'>
+<input type=button value="submit" onclick="{
+ document.getElementById('myOut06').innerHTML+= myFun06(document.getElementById('yourage').value,document.getElementById('mumsage').value,'Your mum')
+}">
+<div id="myOut06"></div>
+</p>
+<p>
+Function #7: 
+What is your mum's name <input id="mumname" type=text value='Ann'>
+<input type=button value="submit" onclick="{
+ document.getElementById('myOut07').innerHTML+= myFun07(document.getElementById('mumname').value)
+}">
+<div id="myOut07"></div>
+</p>
+<p>
+Function #8: 
+<input id="array" type=text value='Wilson,Nova,Lola'>
+<input type=button value="submit" onclick="{
+ document.getElementById('myOut08').innerHTML = myFun08(document.getElementById('array').value)
+}">
+<div id="myOut08"></div>
+</p>

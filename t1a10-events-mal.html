@@ -1,43 +1,99 @@
+<html>
+<head>
+<style>
+.droptarget {
+    float: left; 
+    width: 100px; 
+    height: 35px;
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+</style>
+</head>
 <h2 align=center> Events by Mal </h2>
 
-<div id="myDiv01" style="background:pink;width:20%;height:40;float:left"
+
+
+<body onload="myFunction01()">
+
+<div id="myDiv01" style="margin-bottom:10px;background:#F0846D;width:200px;height:80;"
  OnDblClick="{ 
-document.getElementById('myOutput01').innerHTML = 'double click event activated'
+document.getElementById('myOutput01').innerHTML = 'double click event activated - Event #2'
 }"><div id="myOutput01">...</div>
 Double click here</div>
 
-<div id="myDiv02"style="background:orange;width:20%;height:40;float:left"
+<div id="myDiv02"style="margin-bottom:10px;background:#D56D57;width:200px;height:80;"
 onMouseOver="{ document.getElementById('myOutput02').innerHTML=event.clientX
 }"> <div id="myOutput02">...</div>
-Mouse over here</div>
+Mouse over here - Event #3</div>
 
-<div style="width:20% float:left">
-<div id="myOutput03">...</div>
+<div style="margin-bottom:10px;width:200px;height:80px">
+<div id="myOutput03"></div>
 <input type=text align="right" value="Change me" onChange="{
 document.getElementById('myOutput03').innerHTML= 
-'You changed the text: ' + this.value
+'You changed the text: ' + this.value+' - Event #4'
 }"> 
 </div>
-
-<body onload="myFunction01()">
 <script>
 function myFunction01() {
-alert ("page is loaded"); 
-}">
-</script>
-
-<div onmousemove="myFunction02()">
-<script>
-function myFunction02(){document.getElementById('myOutput04').innerHTML = 'mouse moved' 
-}">
-</script>
-
-<div style="width:20% float:left">
-<input type="text" value= "Press a key" onkeydown="myFunction03()">
-<script>
-function myFunction03() {
-    alert("You pressed a key inside the input field");
+alert("Event #1")
 }
 </script>
 
+<div onmouseout="myFunction02()" style="margin-bottom:10px;background:#74EF76;width:200px;height:80;" id="myOutput04">
+Mouse over this Div
+<script>
+function myFunction02(){
+document.getElementById('myOutput04').innerHTML = 'mouse left div - Event #5' 
+}
+</script>
+</div>
+<div  style="margin-bottom:10px;width:200px;height:80;">
+<input type="text" value= "Press a key" onkeydown="myFunction03()">
+<script>
+function myFunction03() {
+    alert("You pressed a key inside the input field - Event #6");
+}
+</script>
+</div>
+<div  style="margin-bottom:30px;background:#5BDA5D;width:200px;height:80;">
+<div class="droptarget" ondrop="functionDrop04(event)" ondragover="functionAllowDrop04(event)">
+  <p ondragstart="functionDragStart04(event)" ondrag="functionDragging04(event)" draggable="true" id="dragtarget">Drag me!</p>
+</div>
+
+<div class="droptarget" ondrop="functionDrop04(event)" ondragover="functionAllowDrop04(event)"></div>
+<p id="demo"></p>
+<script>
+function functionDragStart04(event) {
+    event.dataTransfer.setData("Text", event.target.id);
+}
+
+function functionDragging04(event) {
+    document.getElementById("demo").innerHTML = "The p element is being dragged - Event #7";
+}
+
+function functionAllowDrop04(event) {
+    event.preventDefault();
+}
+
+function functionDrop04(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData("Text");
+    event.target.appendChild(document.getElementById(data));
+    document.getElementById("demo").innerHTML = "The p element was dropped - Event #8";
+}
+</script>
+</div>
+<div  style="margin-bottom:10px;width:200px;">
+<input type="text" oncopy="myFunction05()" id="copyText" value="Try to copy this text">
+<p id="copyText"></p>
+<script>
+function functionDrop05() {
+    document.getElementById('copyText').innerHTML = 'I copied the text - Event #9';
+}
+</script>
+</div>
+</body>
+</html>
 
