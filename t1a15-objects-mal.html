@@ -1,3 +1,15 @@
+<script>
+var object = '{ "firstName":"Jane", "lastName": "Doe",  "age":62,  "eyeColor":"hazel",  "hairColor":"grey",  "maritalStatus":"married",  "children": 16 }';
+function parseJson(object2){
+   var myPerson = {};
+   myPerson = 
+	JSON.parse(object2);
+
+document.getElementById('myDiv128').innerHTML = 'Name: ' + 
+myPerson.firstName + ' '+ myPerson.lastName + ' , Age: ' + 
+  myPerson.age + ', EyeColor: ' + myPerson.eyeColor + ', HairColor: ' + myPerson.hairColor + ',MaritalStatus: ' + myPerson.maritalStatus + ', Children: ' + myPerson.children +  '<br>';
+}
+</script>
 <h3 align=center>t1a15=objects-again-name.html</3>
 
 Store these items in a Javascript object <br>
@@ -8,22 +20,14 @@ Store these items in a Javascript object <br>
   "age":50,
   "eyeColor":"blue",
   "hairColor":"brown",
-  "maritalStatus":"married"
+  "maritalStatus":"married",
+  "children": 2
 }
 </textarea><br>
 
 
-<input id="myButton128" type="button" value="Store as an object"
-onclick="{
-  var myPerson = {}
-   myPerson = 
-JSON.parse(document.getElementById('myTextAreaObject').value)
-
-document.getElementById('myDiv128').innerHTML = 'Name: ' + 
-myPerson.firstName + ' '+ myPerson.lastName + ' , Age: ' + 
-  myPerson.age + ', EyeColor: ' + myPerson.eyeColor + ', HairColor: ' + myPerson.hairColor + ',  
-MaritalStatus: ' + myPerson.maritalStatus + '<br>'
-
-}"><br><br>
-
+<input id="myButton128" type="button" value="Show his demographic information"
+onclick="parseJson(document.getElementById('myTextAreaObject').value)"><br><br>
+<input id="myButton128" type="button" value="Show her demographic information"
+onclick="parseJson(object)"><br><br>
 <div id='myDiv128'>...</div><br>
