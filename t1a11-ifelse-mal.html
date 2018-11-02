@@ -1,23 +1,179 @@
 <h2 align=center> If else statements by Mal </h2>
-
+<p>
 <input id="myIn" type=text value=10>
 
-<input type=button value="decision if statement" onclick="{
-document.getElementById('myOut').innerHTML =  ' ';
-
-var x = document.getElementById('myIn').value;
-
-if((x == 10)||(x == 20)){
-document.getElementById('myOut').innerHTML+=
-'Equal to 10 or 20';
-}else if(x>20){
-	document.getElementById('myOut').innerHTML+=
-	'Greater than 20';
-}
-else {document.getElementById('myOut').innerHTML+=
-'Not equal to 10 or 20 or greater then 20';}
-}">
-
-
+<input type=button value="decision if statement" onclick="firstDecision()">
 <div id="myOut">....</div>
+Put in 10, 20 or 30 for different answers
+<hr>
+</p>
+<p>
+<input id="myIn01" type=text value=10>
+<input type=button value="decision if statement" onclick="secondDecision()">
+<div id="myOut01">....</div>
+Put in 11 and 16 for different answers
+<hr>
+</p>
+<p>
+<input id="myIn02" type=text value=30>
+<input type=button value="decision if statement" onclick="thirdDecision()">
 
+
+<div id="myOut02">....</div>
+Put in 30 and 31 for different answers 
+<hr>
+</p>
+
+<p>
+<input id="myIn04" type=text value=30>
+<input type=button value="decision if statement" onclick="fourthDecision()">
+
+
+<div id="myOut04">....</div>
+True if even
+<hr>
+</p>
+<p>
+<form name="form">
+<input id="myIn05" type=checkbox value=1>
+<input type=button value="decision if statement" onclick="fifthDecision()">
+</form>
+
+<div id="myOut05">....</div>
+True if checked
+<hr>
+</p>
+<p>
+<input id="myIn06" type=text value=10>
+<input type=button value="decision if statement" onclick="sixthDecision()">
+
+
+<div id="myOut06">....</div>
+Put in 10 and 11 for different answers
+<hr>
+</p>
+<p>
+<input id="myIn07" type=text value=Hannah>
+<input type=button value="decision if statement" onclick="seventhDecision()">
+
+
+<div id="myOut07">....</div>
+Put in Hannah and Brinkley for different answers 
+<hr>
+</p>
+<p>
+<input id="myIn08" type=text value="Hello World">
+<input type=button value="decision if statement" onclick="eigthDecision()">
+
+
+<div id="myOut08">....</div>
+Put in Hello World and hello world for different answers
+<hr>
+</p>
+<script>
+ function firstDecision(){
+ 	document.getElementById('myOut').innerHTML =  ' ';
+
+	var x = document.getElementById('myIn').value;
+
+	if((x == 10)||(x == 20)){
+		document.getElementById('myOut').innerHTML+=
+		'Equal to 10 or 20';
+	}else if(x>20){
+		document.getElementById('myOut').innerHTML+=
+		'Greater than 20';
+	}
+	else {document.getElementById('myOut').innerHTML+=
+		'Not equal to 10 or 20 or greater then 20';
+	}
+ }
+ function secondDecision(){
+ 	document.getElementById('myOut01').innerHTML =  ' ';
+
+	var x = document.getElementById('myIn01').value;
+
+
+	if((x<10)&&(x>15)){
+		document.getElementById('myOut01').innerHTML+='Less than 15 but greater than 10 ';
+	} 
+	else {
+		document.getElementById('myOut01').innerHTML='Not less than or greater than 10';
+ 	}
+}
+
+function thirdDecision(){
+ 	document.getElementById('myOut02').innerHTML =  ' ';
+
+	var x = document.getElementById('myIn02').value;
+
+
+	if(x == 30){
+		document.getElementById('myOut02').innerHTML='Equals to 30';
+	} 
+	else {
+		document.getElementById('myOut02').innerHTML='Does not equal to 30';
+ 	}
+}
+function fourthDecision(){
+ 	document.getElementById('myOut04').innerHTML =  ' ';
+
+	var x = document.getElementById('myIn04').value;
+
+
+	if(x % 2 == 0){
+		document.getElementById('myOut04').innerHTML='true';
+	} 
+	else {
+		document.getElementById('myOut04').innerHTML='false';
+ 	}
+}
+function fifthDecision(){
+	if(document.form.myIn05.checked == true){
+		document.getElementById('myOut05').innerHTML='true';
+	}else{
+		document.getElementById('myOut05').innerHTML='false';
+	}
+
+}
+function sixthDecision(){
+ 	document.getElementById('myOut06').innerHTML =  ' ';
+
+	var x = document.getElementById('myIn06').value;
+
+
+	if( x != 10){
+            document.getElementById('myOut06').innerHTML='Not equal to ten';
+	} 
+	else {
+		document.getElementById('myOut06').innerHTML='Not not equal to ten';
+ 	}
+ 	 }
+ 	function seventhDecision(){
+ 	document.getElementById('myOut07').innerHTML =  ' ';
+
+	var x = document.getElementById('myIn07').value;
+
+
+	if( x.indexOf('a') == 0){
+            document.getElementById('myOut07').innerHTML='Your name has an a';
+	} 
+	else {
+		document.getElementById('myOut07').innerHTML='Your name does not have an a';
+ 	}
+ 	}
+ 	function eigthDecision(){
+ 	document.getElementById('myOut08').innerHTML =  ' ';
+
+	var x = document.getElementById('myIn08').value;
+
+    var regexp = /^[A-Z]/;
+	if(  regexp.test(x)){
+            document.getElementById('myOut08').innerHTML='Your word has an uppercase letter';
+	} 
+	else {
+		document.getElementById('myOut08').innerHTML="Your word doesn't have  an uppercase letter";
+ 	}
+ 	}
+ 	
+ 	
+</script>

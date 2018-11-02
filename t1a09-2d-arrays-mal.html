@@ -1,11 +1,12 @@
 <h2 align=center> 2D arrays by Mal</h2>
-
+<script>
+let myChart = [];
+</script>
 <div id="myDiv01">....</div>
 <input type=button value="Generate 2D array" onclick="{
 
 document.getElementById('myDiv01').innerHTML= ''
 
-let myChart = []
 myChart[0] = []
 myChart[1] = []
 
@@ -18,13 +19,45 @@ myChart[1][1] = 8
 
 document.getElementById('myDiv01').innerHTML+= `
 <table border=1>
-<tr><td><div contenteditable> 
-${myChart[0][0]}</div></td><td><div contenteditable> ${myChart[0][1]}</div></td><td><div contenteditable>${myChart[0][2]}</div></td></tr>
-<tr><td><div contenteditable>
-${myChart[1][0]}</div></td><td><div contenteditable>${myChart[1][1]}</div> </td><td><div contenteditable>${myChart[1][2]}
+<tr><td><div > 
+<input type=text name=myChart[0][0] id=myChart[0][0] value=${myChart[0][0]} onChange=myChart[0][0]=document.getElementById('myChart[0][0]').value;></div></td><td><div > <input type=text name=myChart[0][1] id=myChart[0][2] value=${myChart[0][1]} onChange=myChart[0][1]=document.getElementById('myChart[0][1]').value;></div></td><td><div ><input type=text name=myChart[0][2] id=myChart[0][2] value=${myChart[0][2]} onChange=myChart[0][0]=document.getElementById('myChart[0][2]').value;></div></td></tr>
+<tr><td><div >
+<input type=text name=myChart[1][0] id=myChart[1][0] value=${myChart[1][0]} onChange=myChart[1][0]=document.getElementById('myChart[1][0]').value;></div></td><td><div ><input type=text name=myChart[1][1] id=myChart[1][1] value=${myChart[1][1]} onChange=myChart[1][1]=document.getElementById('myChart[1][1]').value;></div> </td><td><div ><input type=text name=myChart[1][2] id=myChart[1][2] value=${myChart[1][2]} onChange=myChart[0][0]=document.getElementById('myChart[1][2]').value;>
 </div></td></tr>
-
 
 </table>
 `
 }">
+
+<div id="myDiv02">...</div>
+
+<input type=button value="Generate Family 2D array" onClick="generateFamily()">
+<div id="showFamilyTree">
+
+</div>
+<script>
+var familytree = [[]];
+var parents = [];
+var names = ["Desiree","Brianna","Susan","Jason","Brian", "Travis", "Hannah", "Wilson", "Brinkley", "Lola", "Nova", "Galen", "John", "Jon", "Emma", "Olivia", "Brittany"];
+
+function generateFamily(){
+	//generate 10 pairs of parents
+	for(x=0;x<10;x++){
+		parents[x]=names[Math.floor(Math.random()*names.length)]+", "+names[Math.floor(Math.random()*names.length)];
+		familytree[x]=new Array(Math.floor(Math.random()*names.length)+"");
+	}
+	
+	
+displayFamilyTree();
+	
+}
+function displayFamilyTree(){
+	for(x=0;x<parents.length;x++){
+		document.getElementById('showFamilyTree').innerHTML += "Parents: <b>familytree["+x+"] = "+ parents[x]+"</b><br/>";
+		document.getElementById('showFamilyTree').innerHTML += parents[x]+" have : <b>familytree["+x+"][0] = "+ familytree[x][0]+"</b> children<br/><br/>";
+			
+	}
+}
+</script>
+
+</div>
