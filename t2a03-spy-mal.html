@@ -1,0 +1,20 @@
+<h2 align=center> Spy by Mal </h2>
+
+<textarea id="myArea01" rows="2" cols="25">
+ Hello, how are you?
+</textarea>
+<input type=button value="Encrypt" onclick="{
+ alert(myArea01.value)
+}">
+<textarea id="myArea02" rows="2" cols="25">
+ Test
+</textarea>
+<input type=button value="Decrypt" onclick="{
+
+ document.getElementById('myArea03').value = document.getElementById('myArea02').value
+}">
+<textarea id="myArea03" rows="2" cols="25">
+
+</textarea>
+
+
