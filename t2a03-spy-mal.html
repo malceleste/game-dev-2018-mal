@@ -1,20 +1,91 @@
 <h2 align=center> Spy by Mal </h2>
 
+<p> Using arrays </p>
+
 <textarea id="myArea01" rows="2" cols="25">
  Hello, how are you?
 </textarea>
 <input type=button value="Encrypt" onclick="{
- alert(myArea01.value)
-}">
+ myString = 
+document.getElementById('myArea01').value.toLowerCase().split('')
+ for (let myLoop=0; myLoop < myString.length; myLoop++){
+   myTemp= myString[myLoop]
+  if (myString[myLoop] == 'e') {myTemp = 'f'}
+  if (myString[myLoop] == 'h') {myTemp = 'i'}
+  if (myString[myLoop] == 'l') {myTemp = 'r'}
+  if (myString[myLoop] == 'o') {myTemp = 'p'}
+  if (myString[myLoop] == 'w') {myTemp = 'k'}
+  if (myString[myLoop] == 'a') {myTemp = 's'}
+  if (myString[myLoop] == 'y') {myTemp = 't'}
+  if (myString[myLoop] == 'u') {myTemp = 'm'}
+  if (myString[myLoop] == 'r') {myTemp = 'j'}
+ 
+ 
+ 
+  //alert(myLoop+', '+myString[myLoop])
+  
+    myString[myLoop] = myTemp
+}
+ document.getElementById('myArea02').value = myString.join('')
+}"><br></br>
 <textarea id="myArea02" rows="2" cols="25">
- Test
+
 </textarea>
 <input type=button value="Decrypt" onclick="{
-
  document.getElementById('myArea03').value = document.getElementById('myArea02').value
-}">
+document.getElementById('myArea02').value.toLowerCase().split('')
+ for (let myLoop=0; myLoop < myString.length; myLoop++){
+   myTemp= myString[myLoop]
+  if (myString[myLoop] == 'f') {myTemp = 'e'}
+  if (myString[myLoop] == 'i') {myTemp = 'h'}
+  if (myString[myLoop] == 'r') {myTemp = 'l'}
+  if (myString[myLoop] == 'p') {myTemp = 'o'}
+  if (myString[myLoop] == 'k') {myTemp = 'w'}
+  if (myString[myLoop] == 's') {myTemp = 'a'}
+  if (myString[myLoop] == 't') {myTemp = 'y'}
+  if (myString[myLoop] == 'm') {myTemp = 'u'}
+  if (myString[myLoop] == 'j') {myTemp = 'r'}
+ 
+    myString[myLoop] = myTemp
+}
+ document.getElementById('myArea03').value = myString.join('')
+}"><br></br>
 <textarea id="myArea03" rows="2" cols="25">
 
 </textarea>
+
+<br></br>
+
+<p> Using charCodeAt </p>
+
+<textarea id="myArea04" rows="2" cols="25">
+ Hello, how are you?
+</textarea>
+<input type=button value="Encrypt" onclick="{
+   var cipherText='';
+   myString= document.getElementById('myArea04').value;
+   for(let myLoop=0; myLoop < myString.length; myLoop++){
+  	cipherText += String.fromCharCode( myString.charCodeAt(myLoop) + 12 );
+   
+   }
+document.getElementById('myArea05').value=cipherText;
+  
+}"><br></br>
+<textarea id="myArea05" rows="2" cols="25">
+
+</textarea>
+<input type=button value="Decrypt" onclick="{
+ var cipherText='';
+   myString= document.getElementById('myArea05').value;
+   for(let myLoop=0; myLoop < myString.length; myLoop++){
+  	cipherText += String.fromCharCode( myString.charCodeAt(myLoop) - 12 );
+   
+   }
+	document.getElementById('myArea06').value=cipherText;
+}"><br></br>
+<textarea id="myArea06" rows="2" cols="25">
+
+</textarea>
+
 
 
