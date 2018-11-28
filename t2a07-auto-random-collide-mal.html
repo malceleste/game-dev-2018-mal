@@ -50,7 +50,7 @@ let myClock2
 <input type=button value="Random" onclick="{
  clearInterval(myClock2)
   myClock2 = setInterval(function(){
-  myRan = Math.round(Math.random()*10)-5;
+  myRan = Math.round(Math.random()*50)-25;
  document.getElementById('myImage02').style.left = 
 parseInt(document.getElementById('myImage02').style.left) + myRan + 'px'
  }, 200)
