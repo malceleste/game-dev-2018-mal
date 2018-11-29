@@ -25,10 +25,9 @@ function myHitOther(my1,my2){
 
 let myClock
 let myClock2
-
+let myClock3
 </script>
 
-<div id="myDiv01">...</div>
 
 <img id="myImage01" width=40 src="https://media.tenor.com/images/3b388fe03da271d2674faf85eb7c3fcd/tenor.gif" 
     style="position:absolute; width:100px; height:120px; left:200px; top:200px">
@@ -43,8 +42,9 @@ let myClock2
  parseInt(document.getElementById('myImage01').style.top) - 10 + 'px'
    if (myHitOther('myImage01','myImage02')){
  document.getElementById('myImage01').style.top = '200px'
-       }
+   }    
 }, 200)
+
 }">
 
 <input type=button value="Random" onclick="{
@@ -53,6 +53,12 @@ let myClock2
   myRan = Math.round(Math.random()*50)-25;
  document.getElementById('myImage02').style.left = 
 parseInt(document.getElementById('myImage02').style.left) + myRan + 'px'
+ }, 200)
+ clearInterval(myClock3)
+  myClock3 = setInterval(function(){
+ myRan = Math.round(Math.random()*50)-25;
+document.getElementById('myImage02').style.top = 
+parseInt(document.getElementById('myImage02').style.top) + myRan + 'px'
  }, 200)
 }">
 
