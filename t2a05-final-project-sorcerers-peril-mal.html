@@ -1,0 +1,34 @@
+<img id="myBody" width=40 src="https://cdn.shopify.com/s/files/1/0374/5581/products/SUN-0454_43e1049e-6b1a-4411-ba4d-d901faca2012_2048x.jpg?v=1488258434" 
+    style="position:absolute; width:1200px; height:600px; left:200px; top:100px">
+
+<script>
+   let myGlobalX = 0
+   let myClock
+</script>
+<onload="{
+ myTemp = '100px 0px'
+  
+ myGlobalX -= 5
+  
+ myTemp =  myGlobalX + 'px 0px'
+ 
+  document.getElementById('myBody').style.backgroundPosition =myTemp
+
+
+}">
+
+
+<input type=button value="Start" onclick="{
+  clearInterval(myClock)
+  myClock = setInterval(function(){
+     document.getElementById('myButton01').click() 
+  }, 100)
+    
+
+}">
+ <input type=button value="Start" onclick="{
+   clearInterval(myClock)
+   myClock = setInterval(function(){
+   document.getElementById('myImage01').style.top = 
+ parseInt(document.getElementById('myImage01').style.top) - 10 + 'px'
+}, 200)
