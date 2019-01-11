@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title>Sorcerers Peril - By Mallory Bellman-Morris</title>
+
+    <style>
+        body            { background: #111; }
+        #canvas         { display: inline-block; width: 1023px; height: 509px; border: 1px solid #000;}
+    	#instructions {color:#fff;}      
+	</style>
+
+</head>
+
+<body>
+
+<div id="platformer">
+
+    <canvas id="canvas">
+        <div class="unsupported">
+            Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element
+        </div>
+        <img id="sorcerer" width=140 src="img/character.png" 
+    		style=" width:140px; height:140px; left:20px; top:100px">
+
+    </canvas>
+
+    <div id="instructions">
+        <b>LEFT/RIGHT</b> to move, <b>SPACE</b> to jump, collect gold and jump on monsters.
+    </div>
+
+</div>
+
+<script src="js/sorcerer.js"></script>
+
+</body>
+</html>
