@@ -1,23 +1,31 @@
 //initiating variables
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
-var sprite_json = '{"ranges": [[0,35, 0,31],[42,47,0,31]]}';
+var sprite_json = '{"ranges": [[0,35, 0,31],[42,47,0,31],[52,61,0,31],[71,75,0,31],[82,91,0,31],[94,97,0,31],[102,115,0,31],[118,122,0,31],[128,130,0,31],[138,158,0,31],[168,170,0,31],[175,203,0,31]]}';
 var score = 0;
-var coin_wav = "http://www.soundjay.com/button/beep-07.wav";
+var coin_score=0;
+var viewport = document.getElementById('viewport');  
+var coin_wav = "http://www.pacdv.com/sounds/mechanical_sound_effects/coin_5.wav";
 var coins_loaded=false;
 //loading coin img
 var coins = new Image();
 coins.src = "img/coin.png";
+
+var end_coin = new Image();
+end_coin.src = "img/coin-lg.png";
 var coin_locations = [];
 var pitch = 5;//pitch of jump - pitch*xy
 var speed = 10;//impact height
-canvas.width = 1023;
+canvas.width = 3230;
 canvas.height = 512;
 var jumping=false;
 var falling=false;
 var released=false;
 var left=false;
 var right=false;
+var game_over=false;
+var success=false;
+
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
@@ -40,7 +48,7 @@ var player = {
 };
 
 //coinLocations();
-//playgame();
+playgame();
 
 
 function playgame() {
@@ -52,30 +60,49 @@ function action(){
 	
 }
 function renderGame(){
-	
+	context.clearRect(0, 0, canvas.width, canvas.height);
+
 	//redraw background to clear
-	//loadImg("sprite");
-	drawImg("","background");
+	drawImg("","background-all");
 	drawImg(sprite_json,"sprite");
-	//score title
-	context.font = "12px Verdana";
-	context.fillStyle = "black";
-	context.fillText("Score: "+score,10,20);
+	document.getElementById("score").innerHTML = score;
 	//sorcerer
 	character.src = player.img;
-	context.drawImage(character, 0, 0, 140, 140, player.x, player.y, 140, 140);
+	console.log(success+" "+game_over);
+	if(success == true){
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		//redraw background to clear
+		document.getElementById("viewport").style.backgroundImage = "url('img/background-success.png')";
+		//pause 2 seconds to show game over, and redirect to google.
+		setTimeout(function(){
+        	//document.location="http://www.google.com/search?q=final+score="+score;
+        	document.location="http://www.google.com/";
+        }, 3000);
+	}else if(game_over == false){
+		context.drawImage(character, 0, 0, 140, 140, player.x, player.y, 140, 140);
+		loadCoins();
+	}else{
+			
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		//redraw background to clear
+		document.getElementById("viewport").style.backgroundImage = "url('img/background-gameover.png')";
+		document.getElementById("game_score").innerHTML="Final Score: "+score;
+        document.getElementById("game_score").style.display='block';
+		//pause 2 seconds to show game over, and redirect to google.
+		setTimeout(function(){
+        	//document.location="http://www.google.com/search?q=final+score="+score;
+        	document.location="http://www.google.com/";
+        }, 3000);
+        
+    }
 	//if(!coins_loaded){
 	//	coins_loaded=true;
 		
-		loadCoins();
+		
 	//}
-	//load title
-	//setting game title
-	context.font = "19px Impact";
-	context.fillStyle = "black";
-	context.fillText("Sorcerers Peril",400,20);
-	move();
 
+	move();
+	requestAnimationFrame(renderGame);
 }
 
 function drawImg(json,name){
@@ -83,13 +110,14 @@ function drawImg(json,name){
     var img = new Image();
     img.src = "img/"+name+".png";
     if(json == ""){
-    	context.drawImage(img,0,0);//draw static bg
+    	context.drawImage(img,0,0,10230, 509);//draw static bg
     }else{
         var parsed = JSON.parse(json);
+        
 		for(var x = 0; x<parsed.ranges.length;x++){
-    	   for(var i = parsed.ranges[0][0];i<parsed.ranges[0][1];i++){
+    	   for(var i = parsed.ranges[x][0];i<parsed.ranges[x][1];i++){
     	   
-    	       for(var j = parsed.ranges[0][2];j<parsed.ranges[0][3];j++){
+    	       for(var j = parsed.ranges[x][2];j<parsed.ranges[x][3];j++){
     	       //context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
     	        //# of tiles * width/height ensures next tile starts at end of last one
     		       
@@ -107,6 +135,8 @@ function loadCoins(){
 	for(var i = 0;i<coin_locations.length;i++){
 		context.drawImage(coins,0,0,19,22,coin_locations[i].x,coin_locations[i].y,19,22);
 	}
+	//load mother coin
+	context.drawImage(end_coin,0,0,75,87,3100,390,75,78);
 }
 function coinLocations(){
 	var num_coins = 25;
@@ -114,9 +144,63 @@ function coinLocations(){
 		//var ran_num_x = getRandomNum("x");
 		//var ran_num_y = getRandomNum("y");
 		coin_locations[0] = new Coin(250,430);
-		coin_locations[1] = new Coin(275,430);
-		coin_locations[2] = new Coin(300,430);
-		coin_locations[3] = new Coin(325,430);
+		coin_locations[coin_locations.length] = new Coin(275,430);
+		coin_locations[coin_locations.length] = new Coin(300,430);
+		coin_locations[coin_locations.length] = new Coin(325,430);
+		
+		coin_locations[coin_locations.length] = new Coin(250,380);
+		coin_locations[coin_locations.length] = new Coin(275,380);
+		coin_locations[coin_locations.length] = new Coin(300,380);
+		coin_locations[coin_locations.length] = new Coin(325,380);
+		
+		coin_locations[coin_locations.length] = new Coin(250,330);
+		coin_locations[coin_locations.length] = new Coin(275,330);
+		coin_locations[coin_locations.length] = new Coin(300,330);
+		coin_locations[coin_locations.length] = new Coin(325,330);
+		
+		coin_locations[coin_locations.length] = new Coin(650,380);
+		coin_locations[coin_locations.length] = new Coin(675,380);
+		coin_locations[coin_locations.length] = new Coin(700,380);
+		coin_locations[coin_locations.length] = new Coin(725,380);
+		coin_locations[coin_locations.length] = new Coin(950,380);
+		coin_locations[coin_locations.length] = new Coin(975,380);
+		coin_locations[coin_locations.length] = new Coin(1000,380);
+		coin_locations[coin_locations.length] = new Coin(1025,380);
+		
+		
+		coin_locations[coin_locations.length] = new Coin(1200,280);
+		coin_locations[coin_locations.length] = new Coin(1225,280);
+		coin_locations[coin_locations.length] = new Coin(1500,380);
+		coin_locations[coin_locations.length] = new Coin(1525,380);
+		coin_locations[coin_locations.length] = new Coin(1700,380);
+		coin_locations[coin_locations.length] = new Coin(1725,380);
+		coin_locations[coin_locations.length] = new Coin(1775,380);
+		coin_locations[coin_locations.length] = new Coin(1800,380);
+		coin_locations[coin_locations.length] = new Coin(2200,380);
+		coin_locations[coin_locations.length] = new Coin(2225,380);
+		coin_locations[coin_locations.length] = new Coin(2250,380);
+		coin_locations[coin_locations.length] = new Coin(2275,380);
+		coin_locations[coin_locations.length] = new Coin(2200,430);
+		coin_locations[coin_locations.length] = new Coin(2225,430);
+		coin_locations[coin_locations.length] = new Coin(2250,430);
+		coin_locations[coin_locations.length] = new Coin(2275,430);
+		coin_locations[coin_locations.length] = new Coin(2300,380);
+		coin_locations[coin_locations.length] = new Coin(2325,380);
+		coin_locations[coin_locations.length] = new Coin(2350,380);
+		coin_locations[coin_locations.length] = new Coin(2375,380);
+		coin_locations[coin_locations.length] = new Coin(2300,430);
+		coin_locations[coin_locations.length] = new Coin(2325,430);
+		coin_locations[coin_locations.length] = new Coin(2350,430);
+		coin_locations[coin_locations.length] = new Coin(2375,430);
+		coin_locations[coin_locations.length] = new Coin(2400,380);
+		coin_locations[coin_locations.length] = new Coin(2425,380);
+		coin_locations[coin_locations.length] = new Coin(2450,380);
+		coin_locations[coin_locations.length] = new Coin(2475,380);
+		coin_locations[coin_locations.length] = new Coin(2400,430);
+		coin_locations[coin_locations.length] = new Coin(2425,430);
+		coin_locations[coin_locations.length] = new Coin(2450,430);
+		coin_locations[coin_locations.length] = new Coin(2475,430);
+		
 	//}
 }
 
@@ -129,8 +213,15 @@ function lookForCollision(){
 			audio.play();
 			score=score+10;
 			coin_locations.splice(i,1);
+			
        		return true
    		}
+   }
+   
+   if(player.x>=3070){
+   		//Success, we reached the end
+   		score=score+500;
+   		success=true;
    }
 }
 
@@ -177,14 +268,10 @@ function move() {
                 }
             else if (falling) {
 					
-                if (player.y < 385) {console.log('checking');
+                if (player.y < 385) {
                     player.y += 20;
                 }
-                if (player.y >= 385) {
-                    player.y = 385;
-                    falling = false;
-					released = true;
-                }
+                
             }
             if (left) {
             	player.img = "img/character-left.png";
@@ -205,7 +292,7 @@ function move() {
 		player.x = 0;
 	}
 	if (player.y >= (canvas.height - 32)) {
-		player.y = 0;
+	//	player.y = 0;
 	}
 	if (player.x < 0) {
 		player.x = (canvas.width - 32);
@@ -214,10 +301,49 @@ function move() {
 		player.y = (canvas.height - 32);
 	}
 	lookForCollision();
-	
+	//increase score by # of pixel distance
+	score=coin_score+(Math.round(player.x/2));
+	if(player.x>300){
+		scrollViewport(player.x,player.y);
+		
+	}
+	if (player.y >= 385) {
+                	//check if we're in a hole
+                	
+                	if(amIDead(player.x)){
+                		console.log("dead");
+                		player.y=550;//fall through bottom.
+                		game_over = true;
+                	}else{
+                    	player.y = 385;
+                    }
+                    falling = false;
+					released = true;
+     }
 	
 }
 
+function amIDead(locationx){
+	var dead=false;
+	var gaps = {};
+	//xcoord is based on back of broom - increaese 57px
+	locationx=locationx+64;
+	//loop through ground to find gaps.
+	var parsed = JSON.parse(sprite_json);
+	var start = 0;//set higher so its ignored on first run-through.
+        
+		for(var x = 0; x<parsed.ranges.length;x++){
+			
+			//characters x location is between the end of the previous block and start of the next block.
+    	   	if(x>0 && locationx >= start && locationx<=(parsed.ranges[x][0]*16)){
+    	   		dead=true;
+    	   			
+    	    }
+    	    start = parsed.ranges[x][1]*16;
+    	}
+    	
+    	return dead;
+}
 //random generated coin locations.
 function getRandomNum(xy) {
 	var min = 0;
@@ -231,4 +357,7 @@ function getRandomNum(xy) {
     }
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-setInterval(renderGame, 100);
+function scrollViewport(x, y){
+    viewport.scrollLeft = x;
+    viewport.scrollTop = 0;
+}
