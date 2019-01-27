@@ -3,28 +3,29 @@
 
 <input type=text id="myNameInput" placeholder="Enter an animal name here" value="">
 <input type=text id="myAgeInput" placeholder="Enter an animal age here" value="">
+
+<input type=text id="myFurColourInput" placeholder="Enter an animal fur colour here" value="">
 <input id="myButton130" type="button" value="Make and Show the class myAnimal" onclick="{
                                                                                  
  class myAnimal {
-    constructor(passName, passAge) {
+    constructor(passName, passAge,passFur) {
        this.myName = passName;
        this.myAge = passAge;
+       this.myFur = passFur;
     }
 
     myShow(){    
-       document.getElementById('myDiv130').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old<br>'
+       document.getElementById('myDiv130').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old and have '+this.myFur+' fur<br>'
     }
 
  }  // end class myAnimal
                                                              
    
                                                                                  
-   myDog = new myAnimal(document.getElementById('myDiv130').innerHTML)
+   myDog = new myAnimal(document.getElementById('myNameInput').value,document.getElementById('myAgeInput').value,document.getElementById('myFurColourInput').value)
    myDog.myShow()      
 
                                                  
 }"><br><br>
 
 <div id='myDiv130'>...</div><br>
-
-add another text box, make it more functional, add more
