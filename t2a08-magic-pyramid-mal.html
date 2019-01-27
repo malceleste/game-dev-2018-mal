@@ -1,0 +1,79 @@
+<style>
+       .row{text-align:center;}
+       .col{width:75px;display:inline-block;position:relative;border:1px solid pink;}
+       .colpink{width:75px;display:inline-block;position:relative;border:1px solid pink;background:pink};
+       
+        
+    </style>
+<h2 align=center> Magic Pyramid by Mal </h2>
+
+<!--Start Number<input  type="text" name="start_number" id="start_number" value=""/></br>-->
+Number of Layers<input type="text" name="num_layers" id="num_layers" value=""/></br>
+<input type=button value="Generate Pascal's Triangle" onclick="generateHTML();"/>
+<script>
+
+
+function generatePyramid(row){
+	var pascal_array =  [];
+	var tmp="";
+	//var start = document.getElementById("start_number").value;
+	var layer=document.getElementById("num_layers").value;
+	for(var row = 0;row<=layer;row++){
+		pascal_array[row] =[];//initial array in layer/row
+		for(var col=0;col<=row;col++){
+			//if at end of row
+			if(row==col){
+				pascal_array[row].push(1);
+				//pascal_array[row].push(start);//always 1 at end
+				
+			}else{
+				if((!!pascal_array[row-1][col-1])){
+					tmp = pascal_array[row-1][col-1];
+					if((!!pascal_array[row-1][col])){
+						tmp = tmp+pascal_array[row-1][col];
+					}else{
+						tmp = tmp+0;
+					}
+				}else{
+					tmp = 0;
+					if((!!pascal_array[row-1][col])){
+						tmp = tmp+pascal_array[row-1][col];
+					}else{
+						tmp = tmp+0;
+					}
+				}
+				pascal_array[row].push(tmp);
+			}
+		}
+	
+	}
+	return pascal_array;
+ }
+ function generateHTML(){
+ 	var html = "";
+            document.getElementById("pascal_triangle").innerHTML = "";
+        
+            var pascal_array = generatePyramid();
+            for(var i=0;i<pascal_array.length;i++){
+           		 var row = document.createElement('div');
+           		 row.className="row";
+                for(var j=0;j<pascal_array[i].length;j++){
+                
+           		 	var label = document.createElement('label');
+           		 	if(j % 2 == 0){
+           		 		label.className="col";
+           		 	}else{
+           		 		label.className="colpink";
+           		 	}
+                    label.innerHTML=pascal_array[i][j];
+                    row.appendChild(label);
+                    
+                }
+                document.getElementById("pascal_triangle").appendChild(row);
+            }
+        }
+ </script>
+ 
+ <div class="container" style="margin:0 auto;">
+        <div id="pascal_triangle" style="margin:0 auto;"></div>
+    </div>
