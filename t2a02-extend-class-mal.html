@@ -1,5 +1,4 @@
-
-<input id="myButton131" type="button" value="Extend a class" onclick="{
+<script>
 class myAnimal {
     constructor(passName, passAge, passColor, passFavorite, passDislike, passOwner, passRelation) {
        this.myName = passName;
@@ -9,24 +8,24 @@ class myAnimal {
        this.myDislike = passDislike; 
        this.myOwner = passOwner; 
        this.myRelation = passRelation;
-  
      }
     myShow(){
-       document.getElementById('myDiv131').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old <br>'
+       document.getElementById('myDiv131').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old<br>';
     }
  }  // end class myAnimal
                                                              
 class myCat extends myAnimal {                                                                      
      myShow(){
-       document.getElementById('myDiv131').innerHTML = this.myName + ' is a great cat who is ' + this.myAge + ' years old. His fur is ' + this.myColor + 'His favourite thing is ' + this.myFavorite + ' His least favourite
-thing is ' + this.myDislike + ' His owners name is ' + this.myOwner + ' Their relationship is ' + this.myRelation + ' <br>'
+       document.getElementById('myDiv131').innerHTML = this.myName + ' is a great cat who is ' + this.myAge + ' years old. His fur is  ' + this.myColor + '. His favourite thing is ' + this.myFavorite + '. His least favourite thing is ' + this.myDislike + '.  His owners name is ' + this.myOwner + '. Their relationship is ' + this.myRelation + ' <br>';
     }                                                                   
 }    // end extended class myCat
                                                                      
                                                               
-                                                                                                                                                                                                       
+    function pet(){                                                                                                                                                                                                   
    myPet = new myCat('Fluffy', 14, 'Orange', 'Catnip', 'Water', 'Lily', 'Complicated')
-   myPet.myShow()                                                                           
-}"><br><br>
+   myPet.myShow()     ;
+   }
+</script>
+<input id="myButton131" type="button" value="Extend a class" onclick="pet();"><br><br>
 
 <div id='myDiv131'>...</div><br>
