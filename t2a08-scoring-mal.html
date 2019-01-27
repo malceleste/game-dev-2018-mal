@@ -1,7 +1,7 @@
 <h3 align=center > My Moving images by Fred</h3>
 
 <script>
-
+var count = 0;
 
 function myHitOther(my1,my2){
    left1   = parseInt(document.getElementById(my1).style.left)
@@ -16,6 +16,8 @@ function myHitOther(my1,my2){
        (bottom1 >=  top2   ) &&
        (left1   <=  right2 ) &&
        (top1    <=  bottom2) ){
+        count = count+1;
+        document.getElementById('myScore').value =count;
        return true
    }
 }
@@ -39,8 +41,7 @@ Score: <input id="myScore" type=number value=0><br>
      parseInt(document.getElementById('myImage01').style.top) - 5 + 'px'
    if (myHitOther('myImage01','myImage02')){
          document.getElementById('myImage01').style.top ='200px'
-         document.getElementById('myDiv01').innerHTML = 'Ouch'
-         document.getElementById('myScore').value = 200
+         document.getElementById('myDiv01').innerHTML = 'Ouch';
    }
 }">
 
