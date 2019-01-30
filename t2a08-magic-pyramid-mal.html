@@ -13,42 +13,28 @@ Number of Layers<input type="text" name="num_layers" id="num_layers" value=""/><
 <script>
 
 
-function generatePyramid(row){
+function generatePyramid(){
 	var pascal_array =  [];
-	var tmp="";
+	var temp="";
 	//var start = document.getElementById("start_number").value;
-	var layer=document.getElementById("num_layers").value;
-	for(var row = 0;row<=layer;row++){
-		pascal_array[row] =[];//initial array in layer/row
-		for(var col=0;col<=row;col++){
-			//if at end of row
-			if(row==col){
-				pascal_array[row].push(1);
-				//pascal_array[row].push(start);//always 1 at end
-				
-			}else{
-				if((!!pascal_array[row-1][col-1])){
-					tmp = pascal_array[row-1][col-1];
-					if((!!pascal_array[row-1][col])){
-						tmp = tmp+pascal_array[row-1][col];
-					}else{
-						tmp = tmp+0;
-					}
-				}else{
-					tmp = 0;
-					if((!!pascal_array[row-1][col])){
-						tmp = tmp+pascal_array[row-1][col];
-					}else{
-						tmp = tmp+0;
-					}
-				}
-				pascal_array[row].push(tmp);
-			}
-		}
+	var num_rows=document.getElementById("num_layers").value;
 	
+    pascal_array[0] = [1];//row1
+    pascal_array[1] = [1,1];//row2
+    //Start building array on row 3
+	for (var row = 2; row < num_rows; row++){
+    	pascal_array[row] = [1];
+    	for (var col = 1; col <= row -1; col++){
+    		//current_row = same column 1 row above + 1 row above, 2 column before current column
+        	pascal_array[row][col] = pascal_array[row-1][col] + pascal_array[row-1][col-1];
+        	//add 1 on end. 
+        	pascal_array[row].push(1);
+    	}
 	}
 	return pascal_array;
  }
+ 
+ 
  function generateHTML(){
  	var html = "";
             document.getElementById("pascal_triangle").innerHTML = "";
