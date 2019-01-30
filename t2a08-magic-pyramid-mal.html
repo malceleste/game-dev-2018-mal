@@ -16,18 +16,18 @@ Number of Layers<input type="text" name="num_layers" id="num_layers" value=""/><
 function generatePyramid(){
 	var pascal_array =  [];
 	var temp="";
-	//var start = document.getElementById("start_number").value;
+	
 	var num_rows=document.getElementById("num_layers").value;
 	
     pascal_array[0] = [1];//row1
     pascal_array[1] = [1,1];//row2
-    //Start building array on row 3
+  
 	for (var row = 2; row < num_rows; row++){
     	pascal_array[row] = [1];
     	for (var col = 1; col <= row -1; col++){
-    		//current_row = same column 1 row above + 1 row above, 2 column before current column
+    	
         	pascal_array[row][col] = pascal_array[row-1][col] + pascal_array[row-1][col-1];
-        	//add 1 on end. 
+        	
         	pascal_array[row].push(1);
     	}
 	}
